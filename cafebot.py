@@ -23,7 +23,7 @@ class MyStreamListener(tweepy.StreamListener):
         analysis_sentiment = analysis.sentiment
         print(analysis_sentiment)
 
-def lambda_function():
+def lambda_function(event, context):
     myStreamListener = MyStreamListener()
     myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
     myStream.filter(track=['cafebot18'])
